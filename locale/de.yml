@@ -21,3 +21,4 @@ tituspijean-auth-ldap:
       use_ssl: Benutze SSL
       use_tls: Benutze TLS
       onlyUse: Verstecke Standard Loginmethode.
+      user_nickname: nickname

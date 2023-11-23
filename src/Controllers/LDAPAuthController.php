@@ -49,6 +49,7 @@ class LDAPAuthController implements RequestHandlerInterface
 		$ldapErrors = [];
 		$userLdapMail = $this->settings->get($settingsPrefix . 'user_mail');
 		$userLdapUsername = $this->settings->get($settingsPrefix . 'user_username');
+		$userNickname = $this->settings->get($settingsPrefix . 'user_nickname');
 
 		$connection = new Connection($config);
 
@@ -74,9 +75,10 @@ class LDAPAuthController implements RequestHandlerInterface
 						return $this->response->make(
 							'ldap',
 							$user[strtolower($userLdapUsername)][0],
-							function (Registration $registration) use ($user, $userLdapUsername, $userLdapMail) {
+							function (Registration $registration) use ($user, $userLdapUsername, $userLdapMail,$userNickname) {
 								$registration
 									->provide('username', $user[strtolower($userLdapUsername)][0])
+									->provide('nickname',$user[strtolower($userNickname)][0])
 									->provideTrustedEmail($user[strtolower($userLdapMail)][0])
 									//->provideAvatar($user->getJpegPhoto())
 									->setPayload((array)$user['dn']);

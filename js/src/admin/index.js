@@ -3,7 +3,7 @@ import app from 'flarum/app';
 const settingsPrefix = 'tituspijean-auth-ldap.';
 const translationPrefix = 'tituspijean-auth-ldap.admin.settings.';
 
-app.initializers.add('tituspijean-auth-ldap', function(app) {
+app.initializers.add('tituspijean-auth-ldap', function (app) {
   app.extensionData
     .for('tituspijean-auth-ldap')
     .registerSetting(
@@ -108,6 +108,14 @@ app.initializers.add('tituspijean-auth-ldap', function(app) {
         label: app.translator.trans(translationPrefix + 'user_username'),
         type: 'text',
         placeholder: 'uid',
+      }
+    )
+    .registerSetting(
+      {
+        setting: settingsPrefix + 'user_nickname',
+        label: app.translator.trans(translationPrefix + 'user_nickname'),
+        type: 'text',
+        placeholder: 'displayName',
       }
     )
     .registerSetting(

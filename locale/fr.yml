@@ -21,3 +21,4 @@ tituspijean-auth-ldap:
       use_ssl: Utiliser SSL
       use_tls: Utiliser TLS
       onlyUse: Cacher le système de connexion standard de Flarum
+      user_nickname: nickname
